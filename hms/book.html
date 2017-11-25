@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- Template by freewebsitetemplates.com -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>hCare - Health Care Services</title>
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		
+		
+   
+<script type="text/javascript">
+ //<![CDATA[ 
+ // array of possible countries in the same order as they appear in the Doctor selection list 
+ var DoctorLists = new Array(4) 
+ DoctorLists["empty"] = ["Select a Doctor"]; 
+ DoctorLists["Cardiology"] = ["DR ABC", "DR BCD", "DR EFG"]; 
+ DoctorLists["Ophthalmology"] = ["DR HIJ", "DR JKL", "DR KLM", "DR MNO"]; 
+ DoctorLists["pulmanary diseases"] = ["DR PQR", "DR STU", "DR UVW"]; 
+ DoctorLists["endocrinology"]= ["DR BRN", "DR FRD", "DR IAN", "DR JAN"]; 
+ DoctorLists["General medicine"]= ["DR HRI", "DR FEB", "DR MAR", "DR APR"]; 
+ DoctorLists["orthopeadic"]= ["DR MAY", "DR JUN", "DR JUL", "DR AUG"]; 
+ DoctorLists["Dermatology"]= ["DR SEP", "DR OCT", "DR NOV", "DR DEC"]; 
+ DoctorLists["pediatrics"]= ["DR PAT", "DR MAT", "DR KAT", "DR LAT"]; 
+ DoctorLists["Neurology"]= ["DR SET", "DR MET", "DR VET", "DR DET"]; 
+ /* DoctorChange() is called from the onchange event of a select element. 
+ * param selectObj - the select object which fired the on change event. 
+ */ 
+ function DoctorChange(selectObj) { 
+ // get the index of the selected option 
+ var idx = selectObj.selectedIndex; 
+ // get the value of the selected option 
+ var which = selectObj.options[idx].value; 
+ // use the selected option value to retrieve the list of items from the DoctorLists array 
+ cList = DoctorLists[which]; 
+ // get the Doctor select element via its known id 
+ var cSelect = document.getElementById("Doctor"); 
+ // remove the current options from the Doctor select 
+ var len=cSelect.options.length; 
+ while (cSelect.options.length > 0) { 
+ cSelect.remove(0); 
+ } 
+ var newOption; 
+ // create new options 
+ for (var i=0; i<cList.length; i++) { 
+ newOption = document.createElement("option"); 
+ newOption.value = cList[i];  // assumes option string and value are the same 
+ newOption.text=cList[i]; 
+ // add the new option 
+ try { 
+ cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE 
+ } 
+ catch (e) { 
+ cSelect.appendChild(newOption); 
+ } 
+ } 
+ } 
+//]]>
+</script>
+
+	</head>
+	<body>
+		<div id="page">
+			<div id="header">
+				<ul id="navigation">
+					
+					<br><br><br>
+					<li><img src="images/logo.png" alt="logo"/></li>
+					
+					
+				</ul>
+			</div>
+			<div class="content">
+				<div class="navigation">
+					<ul>
+					<li class="selected" id="link1"><a href="register.html">Register</a></li>
+					<li id="link2"><a href="book.html">Book Appoinment</a></li>
+					<li id="link3"><a href="#"></a></li>
+					</ul>
+					<ul id="buttons">
+						<li><a href="index.html">home</a></li>
+						<li><a href="abstract.html">Abstract</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+					</ul>
+				</div>
+				<div>
+					<h2>book an appoinment</h2>
+					
+					<p><b>Fill Up Form</b></p>
+					<form action="action/book.php" method="post">
+						<table cellspacing="10">
+							<tbody>
+								<tr><td><label>Register no:</label></td><td><input type="number" name="regno" class="txtfield" /></td></tr>
+								<tr><td><label>Booking date:</label></td><td><input type="date" name="date" class="txtfield" /></td></tr>
+								
+								
+								<tr><td><label>Depatment</label></td><td>
+								
+								
+								<select name="dept" id="department" class="txtfield" onchange="DoctorChange(this);">
+  
+								<option value="empty">Select a Department</option>
+								<option value="Cardiology">Cardiology</option>
+								<option value="Ophthalmology">Ophthalmology</option>
+								<option value="pulmanary diseases">pulmanary diseases</option>
+								<option value="endocrinology">endocrinology</option>
+								<option value="General medicine">General medicine</option>
+								<option value="orthopeadic">orthopeadic</option>
+								<option value="Dermatology">Dermatology</option>
+								<option value="pediatrics">pediatrics</option>
+								<option value="Neurology">Neurology</option>
+  
+  </select>
+  </td></tr>
+  
+  <tr><td><label for="Doctor">Doctor</label></td><td>
+  <select id="Doctor" name="doc">
+    <option value="0">Select a Doctor</option>
+  </select>
+								</td></tr>
+								
+								
+								<tr><td colspan="2" align="right"><input type="submit" name="b3" value="Submit" class="button" /></td></tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div id="footer">
+				
+				<p id="footnote">&#169; Copyright &#169; 2011. Company name all rights reserved</p>
+			</div>
+		</div>
+	</body>
+</html>
+
