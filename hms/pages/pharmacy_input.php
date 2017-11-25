@@ -3,14 +3,7 @@ $xy=NULL;
  include '../link.php';
 session_start();
 error_reporting(0);
-$id=$_SESSION['usrname'];
-
-$sel=mysql_query("select * from register where slno='$id'");
-		while($row=mysql_fetch_array($sel))
-	{
-		$xy=$row['fname'];
-		
-	}
+$opno=$_POST['opno'];
 
 ?>
 <!DOCTYPE html>
@@ -18,7 +11,7 @@ $sel=mysql_query("select * from register where slno='$id'");
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Dentist Web Template</title>
+		<title>hCare</title>
 		<link rel="stylesheet" href="../css/style.css" type="text/css" />
 		<link rel="stylesheet" href="../css/table.css" type="text/css" />
 	</head>
@@ -36,9 +29,9 @@ $sel=mysql_query("select * from register where slno='$id'");
 			<div class="content">
 				<div class="navigation">
 					<ul>
-					<li class="selected" id="link1"><a href="other_features.php">Other Features</a></li>
-					<li id="link2"><a href="prescription.php">Prescription</a></li>
-					<li id="link3"><a href="#"></a></li>
+					<li class="selected" id=""link1"><a href=""></a></li>
+					<li id="link2"><a href=""></a></li>
+					<li id="link3"><a href=""></a></li>
 					</ul>
 					<ul id="buttons">
 						<li><a href="../contact.html">Contact Us</a></li>
@@ -46,34 +39,36 @@ $sel=mysql_query("select * from register where slno='$id'");
 					</ul>
 				</div>
 				<div>
-						<br><br>
-						<h2> welcome <?php echo htmlspecialchars($xy);?> </h2>
-						<h3>TREATMENT HISTORY</h3>
+						
+						<h3>Medicine Prescribed</h3>
 						<?php 
 						$i=1;
-						 $sel=mysql_query("select * from `$id` ");
-						 ?>
-						 <table>
-						 <tr><td>Slno</td>
-						     <td>Date</td>
-						     <td>Treatment</td>
-						 </tr>
-						 <?php
+						 $sel=mysql_query("select * from pharmacy where opno='$opno' ");
+						 $select=mysql_query("select fname from register where slno='$opno'");
+						  $sele=mysql_query("select lname from register where slno='$opno'");
+						 $fetch=mysql_fetch_row($select);
+						 $fetc=mysql_fetch_row($sele);
+						 //echo $fetch;
+						 
 						 while($rel=mysql_fetch_row($sel))
 						 {   
-							 ?>
-							 <tr><td><?php echo $i ?></td>
-							     <td><?php echo $rel[1] ?></td>
-								 <td><?php echo $rel[2] ?></td>
-						     </tr>
-						 <?php
+							 
+							      
+							     echo "NAME : ".$fetch[0]; echo "&nbsp"; echo $fetc[0] ; 
+								 echo "<br>";
+							     echo "DATE : ".$rel[1]; 
+								 echo "<br>";
+								 echo "MEDICINES : ".$rel[2];
+								 echo "<br>";
+						     
+						 
 							 
 						 $i++;
 						 }
 						 
 						 ?>
-						 </table>
-						
+						 
+						 
 						
 						
 				</div>

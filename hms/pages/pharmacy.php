@@ -18,7 +18,7 @@ $sel=mysql_query("select * from register where slno='$id'");
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Dentist Web Template</title>
+		<title>hCare</title>
 		<link rel="stylesheet" href="../css/style.css" type="text/css" />
 		<link rel="stylesheet" href="../css/table.css" type="text/css" />
 	</head>
@@ -36,9 +36,9 @@ $sel=mysql_query("select * from register where slno='$id'");
 			<div class="content">
 				<div class="navigation">
 					<ul>
-					<li class="selected" id="link1"><a href="other_features.php">Other Features</a></li>
-					<li id="link2"><a href="prescription.php">Prescription</a></li>
-					<li id="link3"><a href="#"></a></li>
+					<li class="selected" id=""link1"><a href=""></a></li>
+					<li id="link2"><a href=""></a></li>
+					<li id="link3"><a href=""></a></li>
 					</ul>
 					<ul id="buttons">
 						<li><a href="../contact.html">Contact Us</a></li>
@@ -47,32 +47,13 @@ $sel=mysql_query("select * from register where slno='$id'");
 				</div>
 				<div>
 						<br><br>
-						<h2> welcome <?php echo htmlspecialchars($xy);?> </h2>
-						<h3>TREATMENT HISTORY</h3>
-						<?php 
-						$i=1;
-						 $sel=mysql_query("select * from `$id` ");
-						 ?>
-						 <table>
-						 <tr><td>Slno</td>
-						     <td>Date</td>
-						     <td>Treatment</td>
-						 </tr>
-						 <?php
-						 while($rel=mysql_fetch_row($sel))
-						 {   
-							 ?>
-							 <tr><td><?php echo $i ?></td>
-							     <td><?php echo $rel[1] ?></td>
-								 <td><?php echo $rel[2] ?></td>
-						     </tr>
-						 <?php
-							 
-						 $i++;
-						 }
-						 
-						 ?>
-						 </table>
+						<h2>Pharmacy</h2>
+						<form method="post" action="pharmacy_input.php">
+						<input type="text" name="opno" />
+						<br><br>
+						<button>Submit</button>
+						</form>
+						
 						
 						
 						

@@ -48,7 +48,7 @@ $sel=mysql_query("select * from register where slno='$id'");
 				<div>
 						<br><br>
 						<h2> welcome <?php echo htmlspecialchars($xy);?> </h2>
-						<h3>TREATMENT HISTORY</h3>
+						<h3>MEDICINE HISTORY</h3>
 						<?php 
 						$i=1;
 						 $sel=mysql_query("select * from `$id` ");
@@ -56,7 +56,7 @@ $sel=mysql_query("select * from register where slno='$id'");
 						 <table>
 						 <tr><td>Slno</td>
 						     <td>Date</td>
-						     <td>Treatment</td>
+						     <td>Prescrition</td>
 						 </tr>
 						 <?php
 						 while($rel=mysql_fetch_row($sel))
@@ -64,7 +64,7 @@ $sel=mysql_query("select * from register where slno='$id'");
 							 ?>
 							 <tr><td><?php echo $i ?></td>
 							     <td><?php echo $rel[1] ?></td>
-								 <td><?php echo $rel[2] ?></td>
+								 <td><?php echo $rel[3] ?></td>
 						     </tr>
 						 <?php
 							 
