@@ -3,8 +3,6 @@ $xy=NULL;
  include '../link.php';
 session_start();
 error_reporting(0);
-$opn=$_POST['opno'];
-$opno=$opn."lab_result";
 
 ?>
 <!DOCTYPE html>
@@ -12,7 +10,7 @@ $opno=$opn."lab_result";
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>hCare</title>
+		<title>hCare - Health Care Services</title>
 		<link rel="stylesheet" href="../css/style.css" type="text/css" />
 		<link rel="stylesheet" href="../css/table.css" type="text/css" />
 	</head>
@@ -30,25 +28,28 @@ $opno=$opn."lab_result";
 			<div class="content">
 				<div class="navigation">
 					<ul>
-					<li class="selected" id="link1"><a href="lab.php">lab home</a></li>
+					<li class="selected" id="link1"><a href="lab.php">home</a></li>
 					<li id="link2"><a href=""></a></li>
 					<li id="link3"><a href=""></a></li>
 					</ul>
 					<ul id="buttons">
 						<li><a href="../contact.html">Contact Us</a></li>
-						
+						<li><a href="../logout.php">Logout</a></li>
 					</ul>
 				</div>
 				<div>
 				     
 					    <br><br>
+						<table>
+						<form method="post" action="../action/upload_file.php" enctype="multipart/form-data">
+						<tr><td><label>Opno : </label> <input type="text" name="opno" class="txtfield" /></td></tr>
 						
-						<form method="post" action="upload_file.php">
-						<input type="file" name='$opno' />
+						<br>
+						 <tr><td><input type="file" name="image" id="filetoupload"></td></tr>
 						<br><br>
-						<button>Submit</button>
+						<tr> <td><input type="submit" value="upload" name="bc1"></td></tr>
 						</form>
-						 
+						</table> 
 						 
 						
 						

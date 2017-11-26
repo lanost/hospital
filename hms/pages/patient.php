@@ -18,7 +18,7 @@ $sel=mysql_query("select * from register where slno='$id'");
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Dentist Web Template</title>
+		<title>hCare - Health Care Services</title>
 		<link rel="stylesheet" href="../css/style.css" type="text/css" />
 		<link rel="stylesheet" href="../css/table.css" type="text/css" />
 	</head>
@@ -36,13 +36,13 @@ $sel=mysql_query("select * from register where slno='$id'");
 			<div class="content">
 				<div class="navigation">
 					<ul>
-					<li class="selected" id="link1"><a href="other_features.php">Other Features</a></li>
+					<li class="selected" id="link1"><a href="patient.php">home</a></li>
 					<li id="link2"><a href="prescription.php">Prescription</a></li>
 					<li id="link3"><a href="#"></a></li>
 					</ul>
 					<ul id="buttons">
 						<li><a href="../contact.html">Contact Us</a></li>
-						
+						<li><a href="../logout.php">Logout</a></li>
 					</ul>
 				</div>
 				<div>

@@ -18,7 +18,7 @@ $sel=mysql_query("select * from register where slno='$id'");
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>hCare - Health Care Services</title>
+		<title>Dentist Web Template</title>
 		<link rel="stylesheet" href="../css/style.css" type="text/css" />
 		<link rel="stylesheet" href="../css/table.css" type="text/css" />
 	</head>
@@ -36,44 +36,20 @@ $sel=mysql_query("select * from register where slno='$id'");
 			<div class="content">
 				<div class="navigation">
 					<ul>
-					<li class="selected" id="link1"><a href="patient.php">home</a></li>
-					<li id="link2"><a href="prescription.php">Prescription</a></li>
-					<li id="link3"><a href="#"></a></li>
+					<li class="selected" id="link1"><a href="bp.php">Blood Pressure Condition</a></li>
+					<li id="link2"><a href="diabetic.php">Diabetic Condition</a></li>
+					<li id="link3"><a href="cardiac.php">Cardiac Condition</a></li>
+					
 					</ul>
 					<ul id="buttons">
+					    <li><a href="patient.php">Patient home</a></li>
 						<li><a href="../contact.html">Contact Us</a></li>
-						<li><a href="../logout.php">Logout</a></li>
+						
+						
 					</ul>
 				</div>
 				<div>
-						<br><br>
-						<h2> welcome <?php echo htmlspecialchars($xy);?> </h2>
-						<h3>MEDICINE HISTORY</h3>
-						<?php 
-						$i=1;
-						 $sel=mysql_query("select * from `$id` ");
-						 ?>
-						 <table>
-						 <tr><td>Slno</td>
-						     <td>Date</td>
-						     <td>Prescrition</td>
-						 </tr>
-						 <?php
-						 while($rel=mysql_fetch_row($sel))
-						 {   
-							 ?>
-							 <tr><td><?php echo $i ?></td>
-							     <td><?php echo $rel[1] ?></td>
-								 <td><?php echo $rel[3] ?></td>
-						     </tr>
-						 <?php
-							 
-						 $i++;
-						 }
-						 
-						 ?>
-						 </table>
-						
+					
 						
 						
 				</div>

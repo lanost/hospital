@@ -91,6 +91,13 @@ if($r[3]=="reception")
 	
     header("location:pages/reception.php");
 }
+if($r[3]=="pharmacy")
+{
+    $_SESSION['usertype']="pharmacy";
+	$_SESSION['usrname']=$usrnm;
+	
+    header("location:pages/pharmacy.php");
+}
 
 if($r[3]=="lab")
 {
